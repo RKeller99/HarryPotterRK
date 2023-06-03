@@ -1,6 +1,5 @@
 package com.rkeller.harrypotterrk.view.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rkeller.harrypotterrk.R
-import com.rkeller.harrypotterrk.databinding.ActivityMainBinding
+import com.rkeller.harrypotterrk.databinding.ActivityDetallesPersonajeBinding
 import com.rkeller.harrypotterrk.model.Personaje
 import com.rkeller.harrypotterrk.network.HarryPotterAPI
 import com.rkeller.harrypotterrk.network.RetrofitService
@@ -18,19 +17,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+class DetallesPersonaje : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDetallesPersonajeBinding
 
-    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityDetallesPersonajeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val bundle = intent.extras
+
+        val id = bundle?.getString("id", "")
 
         val call = RetrofitService.getRetrofit().create(HarryPotterAPI::class.java).getPersonajes("api/characters/")
 
-        call.enqueue(object: Callback<ArrayList<Personaje>>{
+        call.enqueue(object: Callback<ArrayList<Personaje>> {
             override fun onResponse(                          // Cuando tenemos una respuesta por parte del servidor
                 call: Call<ArrayList<Personaje>>,
                 response: Response<ArrayList<Personaje>>       // Ya viene mi arraylist
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
                 //Aquí poner una validación en caso de que llegue nulo, un dialogo, un toast, min 43 del segundo video
                 if (response.body().isNullOrEmpty()){
-                    Toast.makeText(this@MainActivity,R.string.falloConexion, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, R.string.falloConexion, Toast.LENGTH_LONG).show()
                 }else{
                     binding.rvMenu.adapter = HarryPotterAdapter(this@MainActivity, response.body()!!) {selectedPersonaje:  Personaje ->
                         personajeClicked(selectedPersonaje)
@@ -56,26 +59,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<ArrayList<Personaje>>, t: Throwable) { //Cuando no hay conexión
                 binding.pbConexion.visibility = View.GONE
-                Toast.makeText(this@MainActivity,R.string.falloConexion, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, R.string.falloConexion, Toast.LENGTH_LONG).show()
             }
 
         })
     }
 
-    private fun personajeClicked(personaje:Personaje){  //Función que quiero que me cache los clicks a un personaje
-        /* Toast.makeText(this,"Click en el elemento con título ${personaje.name}", Toast.LENGTH_SHORT).show()*/
 
-        val bundle = Bundle()
-
-        bundle.putString("id", personaje.id) //Empaquetar para enviarle un objeto de la clase Detalles Personaje, o realmente en personaje obtener los valores completos
-
-        val intent = Intent(this, DetallesPersonaje::class.java)
-
-        intent.putExtras(bundle)
-
-        startActivity(intent)
 
     }
-
-
 }

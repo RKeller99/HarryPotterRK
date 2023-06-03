@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.rkeller.harrypotterrk.databinding.HarrypotterElementBinding
 import com.rkeller.harrypotterrk.model.Personaje
 
-class HarryPotterAdapter(private var context: Context, private var personajes: ArrayList<Personaje>): RecyclerView.Adapter<HarryPotterAdapter.ViewHolder>() {
+class HarryPotterAdapter(private var context: Context, private var personajes: ArrayList<Personaje>, private val clickListener: (Personaje) -> Unit): RecyclerView.Adapter<HarryPotterAdapter.ViewHolder>() {
 
     class ViewHolder(view: HarrypotterElementBinding): RecyclerView.ViewHolder(view.root){
         val ivImagen = view.ivImagen
@@ -34,6 +34,7 @@ class HarryPotterAdapter(private var context: Context, private var personajes: A
 
         holder.itemView.setOnClickListener {
             //Programamos eventos click al ViewHolder completo
+            clickListener(personajes[position])
 
         }
     }
