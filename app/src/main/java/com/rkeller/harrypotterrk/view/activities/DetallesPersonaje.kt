@@ -32,18 +32,12 @@ class DetallesPersonaje : AppCompatActivity() {
         val bundle = intent.extras
 
         val id = bundle?.getString("id", "")
-        //Toast.makeText(this@DetallesPersonaje, id, Toast.LENGTH_LONG).show()
+        Toast.makeText(this@DetallesPersonaje, id, Toast.LENGTH_LONG).show()
+
+        val call = RetrofitService.getRetrofit().create(HarryPotterAPI::class.java).getPersonajesDetails(id)
 
 
-        val detallesPersonaje = RetrofitService.getRetrofit().create(HarryPotterAPI::class.java).getPersonajesDetails(id)
-
-        /*binding.tvTitle.text = detallesPersonaje.name
-        binding.tvLongDesc.text = detallesPersonaje.house
-        Glide.with(this@DetallesPersonaje)
-            .load(detallesPersonaje.image)
-            .into(binding.ivImage)*/
-
-        /*call.enqueue(object: Callback<DetallesPersonaje> {
+        call.enqueue(object: Callback<DetallesPersonaje> {
             override fun onResponse(                          // Cuando tenemos una respuesta por parte del servidor
                 call: Call<DetallesPersonaje>,
                 response: Response<DetallesPersonaje>       // Ya viene mi arraylist
@@ -68,7 +62,7 @@ class DetallesPersonaje : AppCompatActivity() {
 
             }
 
-        })*/
+        })
 
 
 
