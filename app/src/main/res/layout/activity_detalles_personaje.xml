@@ -28,14 +28,14 @@
 
 
                 <TextView
-                    android:id="@+id/tvTitle"
+                    android:id="@+id/tvNombrePersonaje"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/harry_potter_font"
                     android:gravity="center_horizontal"
                     android:paddingBottom="10dp"
                     android:textColor="@color/white"
-                    android:textSize="25sp"
+                    android:textSize="50sp"
                     tools:text="Title" />
 
                 <com.makeramen.roundedimageview.RoundedImageView
@@ -48,7 +48,7 @@
                     tools:src="@mipmap/ic_launcher" />
 
                 <TextView
-                    android:id="@+id/tvLongDesc"
+                    android:id="@+id/tvNombreActor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/harry_potter_font"
@@ -58,7 +58,86 @@
                     android:paddingBottom="10dp"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    tools:text="Description" />
+                    tools:text="Nombre Actor" />
+
+                <TextView
+                    android:id="@+id/tvCasa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/harry_potter_font"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Casa" />
+
+                <TextView
+                    android:id="@+id/tvNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/harry_potter_font"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Fecha Nacimiento" />
+
+                <TextView
+                    android:id="@+id/tvEspecie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/harry_potter_font"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Especie" />
+
+                <TextView
+                    android:id="@+id/tvGenero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/harry_potter_font"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Género" />
+
+                <TextView
+                    android:id="@+id/tvAncestro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/harry_potter_font"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Ancestro" />
+
+                <TextView
+                    android:id="@+id/tvPatronus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/harry_potter_font"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Patronus" />
+
             </LinearLayout>
         </ScrollView>
 

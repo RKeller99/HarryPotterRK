@@ -15,7 +15,19 @@ class HarryPotterAdapter(private var context: Context, private var personajes: A
         val ivImagen = view.ivImagen
         val tvNombrePersonaje = view.tvNombrePersonaje
         val tvNombreActor = view.tvNombreActor
+        val tvCasa = view.tvCasa
+        val tvNacimiento = view.tvNacimiento
     }
+
+    /* interface OnItemClickListener{
+        fun onItemClick(character: CharacterDetails)
+    }
+
+    private var listener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener){
+        this.listener = listener
+    }*/
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = HarrypotterElementBinding.inflate(LayoutInflater.from(context))
@@ -27,6 +39,8 @@ class HarryPotterAdapter(private var context: Context, private var personajes: A
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvNombrePersonaje.text = personajes[position].name
         holder.tvNombreActor.text = personajes[position].actor
+        holder.tvCasa.text = personajes[position].house
+        holder.tvNacimiento.text = personajes[position].dateOfBirth
 
         Glide.with(context)
             .load(personajes[position].image)

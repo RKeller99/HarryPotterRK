@@ -64,15 +64,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun personajeClicked(personaje:Personaje){  //Función que quiero que me cache los clicks a un personaje
         /* Toast.makeText(this,"Click en el elemento con título ${personaje.name}", Toast.LENGTH_SHORT).show()*/
-
-        val bundle = Bundle()
-
-        bundle.putString("id", personaje.id) //Empaquetar para enviarle un objeto de la clase Detalles Personaje, o realmente en personaje obtener los valores completos
+        //val bundle = Bundle()
+        //bundle.putString("id", personaje.id) //Empaquetar para enviarle un objeto de la clase Detalles Personaje, o realmente en personaje obtener los valores completos
 
         val intent = Intent(this, DetallesPersonaje::class.java)
-
-        intent.putExtras(bundle)
-
+        intent.putExtra("personaje", personaje)
         startActivity(intent)
 
     }

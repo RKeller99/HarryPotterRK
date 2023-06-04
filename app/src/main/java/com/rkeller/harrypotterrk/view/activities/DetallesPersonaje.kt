@@ -1,23 +1,15 @@
 package com.rkeller.harrypotterrk.view.activities
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.rkeller.harrypotterrk.R
 import com.rkeller.harrypotterrk.databinding.ActivityDetallesPersonajeBinding
 import com.rkeller.harrypotterrk.model.Personaje
 import com.rkeller.harrypotterrk.network.HarryPotterAPI
 import com.rkeller.harrypotterrk.network.RetrofitService
-import com.rkeller.harrypotterrk.model.DetallesPersonaje
-import com.rkeller.harrypotterrk.utils.Constants
-import com.rkeller.harrypotterrk.view.adapters.HarryPotterAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class DetallesPersonaje : AppCompatActivity() {
 
@@ -29,15 +21,45 @@ class DetallesPersonaje : AppCompatActivity() {
         binding = ActivityDetallesPersonajeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bundle = intent.extras
+        var personaje: Personaje? = null
+
+        personaje = if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.TIRAMISU){
+            intent.getParcelableExtra<Personaje>("personaje", Personaje::class.java)
+        }else{
+            intent.getParcelableExtra<Personaje>("personaje")
+        }
+
+
+        personaje?.let {
+            binding.pbConexion.visibility = View.GONE
+
+            binding.tvNombrePersonaje.text = it.name
+            binding.tvNombreActor.text = it.actor
+            binding.tvCasa.text = it.house
+            binding.tvNacimiento.text = it.dateOfBirth
+            binding.tvEspecie.text = it.species
+            binding.tvGenero.text = it.gender
+            binding.tvAncestro.text = it.ancestry
+            binding.tvPatronus.text = it.patronus
+            //binding.tvVivo.text = it.alive
+
+
+            Glide.with(this)
+                .load(it.image)
+                .into(binding.ivImage)
+        }
+
+        //val personaje = intent.getParcelableExtra<Personaje>("personaje")
+
+        /*val bundle = intent.extras
 
         val id = bundle?.getString("id", "")
         Toast.makeText(this@DetallesPersonaje, id, Toast.LENGTH_LONG).show()
 
-        val call = RetrofitService.getRetrofit().create(HarryPotterAPI::class.java).getPersonajesDetails(id)
+        val call = RetrofitService.getRetrofit().create(HarryPotterAPI::class.java).getPersonajesDetails(id)*/
 
 
-        call.enqueue(object: Callback<DetallesPersonaje> {
+        /*call.enqueue(object: Callback<DetallesPersonaje> {
             override fun onResponse(                          // Cuando tenemos una respuesta por parte del servidor
                 call: Call<DetallesPersonaje>,
                 response: Response<DetallesPersonaje>       // Ya viene mi arraylist
@@ -62,7 +84,7 @@ class DetallesPersonaje : AppCompatActivity() {
 
             }
 
-        })
+        })*/
 
 
 
