@@ -47,7 +47,7 @@ data class Personaje(
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
-    )
+    ) // https://guides.codepath.com/android/using-parcelable
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
         parcel.writeString(image)

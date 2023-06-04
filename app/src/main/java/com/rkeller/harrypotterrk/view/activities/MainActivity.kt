@@ -75,6 +75,8 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<ArrayList<Personaje>>, t: Throwable) { //Cuando no hay conexión
                 binding.pbConexion.visibility = View.GONE
                 Toast.makeText(this@MainActivity,R.string.falloConexion, Toast.LENGTH_LONG).show()
+                val intent = Intent(this@MainActivity, Selector::class.java) //En caso de que no haya conexión regreso al Selector
+                startActivity(intent)
             }
 
         })
