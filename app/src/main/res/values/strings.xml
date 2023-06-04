@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">HarryPotterRK</string>
     <string name="falloConexion">No hay conexión</string>
+    <string name="Estudiantes">Estudiantes</string>
+    <string name="Personal">Personal Hogwarts</string>
+    <string name="Autor" translatable="false">Rodolfo Andrés Keller Ascencio</string>
+    <string name="Version" translatable="false">Version 1.0</string>
 </resources>

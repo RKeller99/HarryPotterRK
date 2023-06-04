@@ -28,7 +28,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val call = RetrofitService.getRetrofit().create(HarryPotterAPI::class.java).getPersonajes("api/characters/")
+
+        val b = intent.extras
+        var seleccion = "" // or other values
+        if (b!= null) {
+            seleccion = b.getString("Selec").toString()
+        }
+
+        val call = if (seleccion == "Personal") {
+            RetrofitService.getRetrofit().create(HarryPotterAPI::class.java)
+                .getPersonajes("api/characters/staff")
+        } else if (seleccion == "Estudiantes") {
+            RetrofitService.getRetrofit().create(HarryPotterAPI::class.java)
+                .getPersonajes("api/characters/students")
+        } else {
+            //Error
+            RetrofitService.getRetrofit().create(HarryPotterAPI::class.java)
+                .getPersonajes("api/characters/")
+        }
+
 
         call.enqueue(object: Callback<ArrayList<Personaje>>{
             override fun onResponse(                          // Cuando tenemos una respuesta por parte del servidor

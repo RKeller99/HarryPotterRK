@@ -7,6 +7,26 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#521103</color>
+
+    <color name="Background">#620B0A</color>
+    <color name="ContrastBackground">#CF9001</color>
+
+
+    <color name="GriffindorDarkRed">#740001</color>
+    <color name="GriffindorRed">#ae0001</color>
+    <color name="GriffindorYellow">#eeba30</color>
+    <color name="GriffindorGold">#d3a625</color>
+    <color name="SlytherinDarkGreen">#1a472a</color>
+    <color name="SlytherinGreen">#2a623d</color>
+    <color name="SlytherinDarkSilver">#5d5d5d</color>
+    <color name="SlytherinLightSilver">#aaaaaa</color>
+    <color name="RavenclawDarkBlue">#0e1a40</color>
+    <color name="RavenclawBlue">#222f5b</color>
+    <color name="TheGrayLady">#bebebe</color>
+    <color name="RavenclawGold">#946b2d</color>
+    <color name="HufflepuffCanary">#eeb939</color>
+    <color name="HufflepuffLightCanary">#f0e75e</color>
+    <color name="HufflepuffLightBrown">#726255</color>
+    <color name="HufflepuffDarkBrown">#372e29</color>
 
 </resources>
