@@ -5,4 +5,12 @@
     <string name="Personal">Personal Hogwarts</string>
     <string name="Autor" translatable="false">Rodolfo Andrés Keller Ascencio</string>
     <string name="Version" translatable="false">Version 1.0</string>
+    <string name="actor">Actor</string>
+    <string name="house">Casa</string>
+    <string name="fechaNacimiento">Fecha de Nacimiento</string>
+    <string name="especie">Especie</string>
+    <string name="gender">Género</string>
+    <string name="ancestry">Ancestro</string>
+    <string name="patronus">Patronus</string>
+    <string name="noInfo">No Disponible</string>
 </resources>

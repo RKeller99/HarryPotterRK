@@ -14,6 +14,7 @@ class Selector : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySelectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
     }
 
     fun ClickPersonal(view: View) {

@@ -4,12 +4,10 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.rkeller.harrypotterrk.R
 import com.rkeller.harrypotterrk.databinding.ActivityDetallesPersonajeBinding
 import com.rkeller.harrypotterrk.model.Personaje
-import com.rkeller.harrypotterrk.network.HarryPotterAPI
-import com.rkeller.harrypotterrk.network.RetrofitService
 
 class DetallesPersonaje : AppCompatActivity() {
 
@@ -20,6 +18,7 @@ class DetallesPersonaje : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetallesPersonajeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         var personaje: Personaje? = null
 
@@ -34,19 +33,31 @@ class DetallesPersonaje : AppCompatActivity() {
             binding.pbConexion.visibility = View.GONE
 
             binding.tvNombrePersonaje.text = it.name
-            binding.tvNombreActor.text = it.actor
-            binding.tvCasa.text = it.house
-            binding.tvNacimiento.text = it.dateOfBirth
-            binding.tvEspecie.text = it.species
-            binding.tvGenero.text = it.gender
-            binding.tvAncestro.text = it.ancestry
-            binding.tvPatronus.text = it.patronus
-            //binding.tvVivo.text = it.alive
+            if(it.actor == ""){ binding.tvNombreActor.text = getString(R.string.actor) + ": " + getString(R.string.noInfo)
+            }else{ binding.tvNombreActor.text = getString(R.string.actor) + ": " + it.actor}
+            if(it.house == ""){ binding.tvCasa.text = getString(R.string.house) + ": " + getString(R.string.noInfo)
+            }else{ binding.tvCasa.text = getString(R.string.house) + ": " + it.house}
+            if(it.dateOfBirth == null){ binding.tvNacimiento.text = getString(R.string.fechaNacimiento) + ": " + getString(R.string.noInfo)
+            }else{binding.tvNacimiento.text = getString(R.string.fechaNacimiento) + ": " + it.dateOfBirth}
+            if(it.species == ""){ binding.tvEspecie.text = getString(R.string.especie) + ": " + getString(R.string.noInfo)
+            }else{binding.tvEspecie.text = getString(R.string.especie) + ": " + it.species}
+            if(it.gender == ""){ binding.tvGenero.text = getString(R.string.gender) + ": " + getString(R.string.noInfo)
+            }else{binding.tvGenero.text = getString(R.string.gender) + ": " + it.gender}
+            if(it.ancestry == ""){ binding.tvAncestro.text = getString(R.string.ancestry) + ": " + getString(R.string.noInfo)
+            }else{binding.tvAncestro.text = getString(R.string.ancestry) + ": " + it.ancestry}
+            if(it.patronus == ""){ binding.tvPatronus.text = getString(R.string.patronus) + ": " + getString(R.string.noInfo)
+            }else{binding.tvPatronus.text = getString(R.string.patronus) + ": " + it.patronus}
 
+            if(it.image == ""){
+                Glide.with(this)
+                    .load(R.drawable.noavailable)
+                    .into(binding.ivImage)
+            }else{
+                Glide.with(this)
+                    .load(it.image)
+                    .into(binding.ivImage)
+            }
 
-            Glide.with(this)
-                .load(it.image)
-                .into(binding.ivImage)
         }
 
         //val personaje = intent.getParcelableExtra<Personaje>("personaje")
