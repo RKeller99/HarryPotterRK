@@ -19,6 +19,7 @@ class Selector : AppCompatActivity() {
 
     fun ClickPersonal(view: View) {
         val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP   // Evita stack de activities al tener error de conexión
         val b = Bundle()
         b.putString("Selec", "Personal")
         intent.putExtras(b)
@@ -26,6 +27,7 @@ class Selector : AppCompatActivity() {
     }
     fun ClickEstudiantes(view: View) {
         val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP   // Evita stack de activities al tener error de conexión
         val b = Bundle()
         b.putString("Selec", "Estudiantes")
         intent.putExtras(b)

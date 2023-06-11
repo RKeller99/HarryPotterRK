@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                 binding.pbConexion.visibility = View.GONE
                 Toast.makeText(this@MainActivity,R.string.falloConexion, Toast.LENGTH_LONG).show()
                 val intent = Intent(this@MainActivity, Selector::class.java) //En caso de que no haya conexión regreso al Selector
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP   // Evita stack de activities al tener error de conexión
                 startActivity(intent)
             }
 
@@ -89,6 +90,7 @@ class MainActivity : AppCompatActivity() {
         //bundle.putString("id", personaje.id) //Empaquetar para enviarle un objeto de la clase Detalles Personaje, o realmente en personaje obtener los valores completos
 
         val intent = Intent(this, DetallesPersonaje::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP   // Evita stack de activities, no se usa, pero aún así lo pongo
         intent.putExtra("personaje", personaje)
         startActivity(intent)
 

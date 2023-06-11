@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HarryPotterRK</string>
-    <string name="falloConexion">No Connection</string>
+    <string name="falloConexion">No Connection. Retry later</string>
     <string name="Estudiantes">Students</string>
     <string name="Personal">Hogwarts Staff</string>
     <string name="actor">Actor</string>
