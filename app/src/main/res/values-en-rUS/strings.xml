@@ -12,4 +12,19 @@
     <string name="ancestry">Ancestry</string>
     <string name="patronus">Patronus</string>
     <string name="noInfo">Unavailable</string>
+    <string name="Ingresar">Sign in</string>
+    <string name="Registrarse">Sign up</string>
+    <string name="correoInvalido">Enter a valid email</string>
+    <string name="contraseniaInvalida">Enter a password with at least 6 characters</string>
+    <string name="invalidEmail">Error: Incorrect Email Format</string>
+    <string name="wrongPass">Error: Invalid Password</string>
+    <string name="cuentaExistente">Error: Username already exists</string>
+    <string name="CorreoEnUso">Error: Username already in use</string>
+    <string name="tokenExpired">Error: Session time expired. Sign in again</string>
+    <string name="usuarioNoEncontrado">Error: There is no username with this account</string>
+    <string name="WeakPass">Error: Invalid Password. Enter a password with at least 6 characters</string>
+    <string name="noAuth">Error: It was not possible to authenticate user</string>
+    <string name="UsuarioCreado">User creation completed</string>
+    <string name="correo">Email Address</string>
+    <string name="contrasenia">Password</string>
 </resources>

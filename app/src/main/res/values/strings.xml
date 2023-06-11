@@ -13,4 +13,19 @@
     <string name="ancestry">Ancestro</string>
     <string name="patronus">Patronus</string>
     <string name="noInfo">No Disponible</string>
+    <string name="Ingresar">Ingresar</string>
+    <string name="Registrarse">Registrarse</string>
+    <string name="correoInvalido">Ingrese un correo válido</string>
+    <string name="contraseniaInvalida">Se requiere una contraseña de por lo menos 6 caracteres</string>
+    <string name="invalidEmail">Error: El correo electrónico no tiene formato correcto</string>
+    <string name="wrongPass">Error: La contraseña no es válida</string>
+    <string name="cuentaExistente">Error: Una cuenta ya existe con este correo</string>
+    <string name="CorreoEnUso">Error: El correo electrónico ya está en uso</string>
+    <string name="tokenExpired">Error: La sesión ha expirado. Ingrese nuevamente</string>
+    <string name="usuarioNoEncontrado">Error: No existe el usuario con esa cuenta</string>
+    <string name="WeakPass">Error: Contraseña inválida. Debe tener al menos 6 caracteres</string>
+    <string name="noAuth">Error: No se pudo autenticar exitosamente</string>
+    <string name="UsuarioCreado">El usuario se ha creado correctamente</string>
+    <string name="correo">Correo Electrónico</string>
+    <string name="contrasenia">Contraseña</string>
 </resources>
